@@ -6,8 +6,15 @@ Console.OutputEncoding = System.Text.Encoding.UTF8;
 decimal precoInicial = 0;
 decimal precoPorHora = 0;
 
-Console.WriteLine("Seja bem vindo ao sistema de estacionamento!\n" +
-                  "Digite o preço inicial:");
+Console.ForegroundColor = ConsoleColor.Blue;
+Console.WriteLine("=============================================");
+Console.WriteLine("              SEJA BEM-VINDO");
+Console.WriteLine("                    AO");
+Console.WriteLine("            SISTEMA DE ESTACIONAMENTO");
+Console.WriteLine("=============================================\n");
+Console.ResetColor();
+
+Console.WriteLine("Digite o preço inicial:");
 precoInicial = Convert.ToDecimal(Console.ReadLine());
 
 Console.WriteLine("Agora digite o preço por hora:");
@@ -32,23 +39,29 @@ while (exibirMenu)
     switch (Console.ReadLine())
     {
         case "1":
+            Console.Clear();
             es.AdicionarVeiculo();
             break;
 
         case "2":
+            Console.Clear();
             es.RemoverVeiculo();
             break;
 
         case "3":
+            Console.Clear();
             es.ListarVeiculos();
             break;
 
         case "4":
-            exibirMenu = false;
+            Console.WriteLine("O programa se encerrou!!!");
+            Environment.Exit(0);
             break;
 
         default:
-            Console.WriteLine("Opção inválida");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Opção inválida!!!");
+            Console.ResetColor();
             break;
     }
 
@@ -56,4 +69,4 @@ while (exibirMenu)
     Console.ReadLine();
 }
 
-Console.WriteLine("O programa se encerrou");
+
